@@ -4,7 +4,7 @@
 ###### Contact: rodrigo.qmiranda@gmail.com
 
 ### About
-Correlator fits multiple modelss based on the combinations of input series; custom indices; transformation functions (logarithm, square root, reciprocal, and etc), and basic mathematical operations (+, -, *, and /). The models are calculated by using an exhaustive training iteration process  that selected the best results based on the highest coefficient of determination (r2) with the lowest Root Mean Square Error (RMSE). A threshold can be determined to avoid large files as output. The scripts were developed for the interpreter Python 2.7.15.
+Correlator fits multiple models based on the combinations of input series; custom indices; transformation functions (logarithm, square root, reciprocal, and etc), and basic mathematical operations (+, -, *, and /). The models are calculated by using an exhaustive training iteration process  that selected the best results based on the highest coefficient of determination (r2) with the lowest Root Mean Square Error (RMSE). A threshold can be determined to avoid large files as output. The scripts were developed for the interpreter Python 2.7.15.
 
 ### Package usage
 ```r
