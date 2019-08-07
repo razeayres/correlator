@@ -1,6 +1,6 @@
 # Correlator - machine learning module to create models
 [![DOI:10.31223/osf.io/kj2vc](https://zenodo.org/badge/DOI/10.31223/osf.io/kj2vc.svg)](https://doi.org/10.31223/osf.io/kj2vc)
-###### *Rodrigo de Queiroga Miranda, and Josiclêda Domiciano Galvíncio*
+###### *Rodrigo de Queiroga Miranda1, Rodolfo Luiz Bezerra Nóbrega, Magna Soelma Beserra de Moura, Raghavan Srinivasan,Josiclêda Domiciano Galvíncio*
 ###### Contact: rodrigo.qmiranda@gmail.com
 
 ### About
