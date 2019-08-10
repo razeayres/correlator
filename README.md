@@ -11,4 +11,4 @@ Correlator fits multiple models based on the combinations of input series; custo
 python <input> <n_pars> <threshold> <n_procs>
 ```
 
-Where ```<input>``` is the input csv (comma delimited) file, ```<n_pars>``` is the number of parameters used to develop the models, ```<threshold>``` is the lowest r2 value that produces an output, ```r <n_procs>``` is the number of processors used to perform parallel optimizations.
+Where ```<input>``` is the input csv (comma delimited) file, ```<n_pars>``` is the number of parameters used to develop the models, ```<threshold>``` is the lowest r2 value that produces an output, ```<n_procs>``` is the number of processors used to perform parallel optimizations.
