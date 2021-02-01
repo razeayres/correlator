@@ -30,7 +30,7 @@ class statistics(object):
 				self.rmse0 = self.calc_rmse(self.y0, self.y)
 				self.nash = self.calc_nash(self.y0, self.y)
 				self.pbias = self.calc_pbias(self.y0, self.y)
-				self.compare_to_others()
+				# self.compare_to_others()
 
 	def simulate(self):
 		numpy.seterr('raise')

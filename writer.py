@@ -21,39 +21,18 @@ class data(object):
         return(y)
 
     def write(self):
-        with open("output.csv", 'wb') as writer:
+        with open("output.csv", 'w') as writer:
             self.reader.itf.starting_workers()
             pool = multiprocessing.Pool(processes=self.reader.itf.prc)
             gen = generator.start(self.reader)
 
-            writer.write("t,pearson,rmse,a,b,pc,lim,rtv,rmse0,nash,pbias,pearson_EQ_B,pearson_EQ_G,pearson_EQ_M,pearson_MCD_8d,pearson_MCD_4d,rmse_EQ_B,rmse_EQ_G,rmse_EQ_M,rmse_MCD_8d,rmse_MCD_4d" + "\n")
-            # writer.write("t,pearson,rmse,a,b,pc,lim,rtv,rmse0,nash,pbias" + "\n")
+            # writer.write("t,pearson,rmse,a,b,pc,lim,rtv,rmse0,nash,pbias,pearson_EQ_B,pearson_EQ_G,pearson_EQ_M,pearson_MCD_8d,pearson_MCD_4d,rmse_EQ_B,rmse_EQ_G,rmse_EQ_M,rmse_MCD_8d,rmse_MCD_4d" + "\n")
+            writer.write("t,pearson,rmse,a,b,pc,lim,rtv,rmse0,nash,pbias" + "\n")
 
             y = self.opt_y()
             self.reader.itf.processing()
             for i in pool.imap(y, gen.data, 1000):
                 if not i.qc == 1:
-                    r = [i.t,
-                         i.pearson,
-                         i.rmse,
-                         i.cov.a,
-                         i.cov.b,
-                         i.pc,
-                         i.lim,
-                         i.rtv,
-                         i.rmse0,
-                         i.nash,
-                         i.pbias,
-                         i.pearson_EQ_B,
-                         i.pearson_EQ_G,
-                         i.pearson_EQ_M,
-                         i.pearson_MCD_8d,
-                         i.pearson_MCD_4d,
-                         i.rmse_EQ_B,
-                         i.rmse_EQ_G,
-                         i.rmse_EQ_M,
-                         i.rmse_MCD_8d,
-                         i.rmse_MCD_4d]
                     # r = [i.t,
                     #      i.pearson,
                     #      i.rmse,
@@ -64,9 +43,30 @@ class data(object):
                     #      i.rtv,
                     #      i.rmse0,
                     #      i.nash,
-                    #      i.pbias]
+                    #      i.pbias,
+                    #      i.pearson_EQ_B,
+                    #      i.pearson_EQ_G,
+                    #      i.pearson_EQ_M,
+                    #      i.pearson_MCD_8d,
+                    #      i.pearson_MCD_4d,
+                    #      i.rmse_EQ_B,
+                    #      i.rmse_EQ_G,
+                    #      i.rmse_EQ_M,
+                    #      i.rmse_MCD_8d,
+                    #      i.rmse_MCD_4d]
+                    r = [i.t,
+                         i.pearson,
+                         i.rmse,
+                         i.cov.a,
+                         i.cov.b,
+                         i.pc,
+                         i.lim,
+                         i.rtv,
+                         i.rmse0,
+                         i.nash,
+                         i.pbias]
                     r = map(str, r)
-                    writer.write(",".join(r)+"\n")
+                    writer.write(",".join(r) + "\n")
 
             # Handling garbage to
             # avoid memory overuse

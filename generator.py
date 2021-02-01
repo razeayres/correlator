@@ -14,7 +14,7 @@ class start(object):
 
 	def mount(self, op, wl, tr):
 		t = ()
-		for a in xrange(len(wl)):
+		for a in range(len(wl)):
 			wlr = 'numpy.array(' + self.data_str + '[' + "'" + wl[a] + "'" + '])'
 			if tr[a] == '**2)':
 				if a != len(wl)-1:

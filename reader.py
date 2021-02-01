@@ -39,7 +39,7 @@ class data(object):
     def load(self, sep=","):
         self.itf.reading_data()   # prints the reading warning
         
-        self.reader = open(self.itf.csvfile, 'rb')  # opens the file
+        self.reader = open(self.itf.csvfile, 'r')  # opens the file
         self.reader = self.reader.readlines()   # make a list from the file
 
         self.reader = [i.replace('\n', '').replace('\r', '').split(sep) for i in self.reader] # removes the terminator, and splits the lines
