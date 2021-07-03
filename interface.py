@@ -2,11 +2,12 @@
 # and Josicleda Galvincio (josicleda@gmail.com)
 
 class handler(object):
-    def __init__(self, csvfile=None, prm=None, trh=None, prc=None):
+    def __init__(self, csvfile=None, prm=None, trh=None, prc=None, typ='lin'):
         self.csvfile = csvfile
         self.prm = prm
         self.trh = trh
         self.prc = prc
+        self.typ = typ
 
     def show(self, t):
         l = [len(i) for i in t]
@@ -22,7 +23,7 @@ class handler(object):
         self.show([t1, t2, t3, t4])
 
     def definitions(self):
-        print('Usage: python <input> <n_pars> <threshold> <n_procs>')
+        print('Usage: python <input> <n_pars> <threshold> <n_procs> <type>')
         if not self.prm == None:
             print('Number of paramaters selected to model: ' + str(self.prm))
     

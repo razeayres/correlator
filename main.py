@@ -16,7 +16,8 @@ if __name__ == '__main__':
         itf = interface.handler(str(argv[1]),       # input file in csv
                                 int(argv[2]),       # number of parameters
                                 float(argv[3]),     # threshold limit
-                                int(argv[4]))       # number of processes
+                                int(argv[4]),       # number of processes
+                                str(argv[5]))       # type of fitting (lin, log, pow, exp)
         itf.credits()       # prints the credits
         itf.definitions()   # prints the definitions
 

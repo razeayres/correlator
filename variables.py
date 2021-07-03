@@ -8,7 +8,8 @@ class y(object):
     def __init__(self, reader):
         try:
             self.s = numpy.array(reader.data['y'])
-            # self.s = numpy.log(self.s)	# ajuste nao-linear
+            if reader.itf.typ in ['exp', 'pow']:
+                self.s = numpy.log(self.s)	# ajuste nao-linear
             self.d = self.s - self.s.mean()
             self.v = sqrt((self.d**2).sum())
         except:
