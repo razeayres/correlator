@@ -1,7 +1,7 @@
 # code by Rodrigo Miranda (rodrigo.qmiranda@gmail.com)
 # and Josicleda Galvincio (josicleda@gmail.com)
 
-import multiprocessing, gc
+import multiprocessing, gc, os
 import generator
 import functions
 import variables
@@ -21,7 +21,19 @@ class data(object):
         return(y)
 
     def write(self):
-        with open("output.csv", 'w') as writer:
+        o = "__".join(map(str, [os.path.basename(self.reader.itf.csvfile).replace('.csv', ''),
+                               self.reader.itf.prm,
+                               str(self.reader.itf.trh).replace('.', '_'),
+                               self.reader.itf.prc,
+                               self.reader.itf.typ])) + '.csv'
+
+        n = 1
+        on = o
+        while os.path.isfile(o):
+            o = on.replace('.csv', ' ('+str(n)+').csv')
+            n += 1
+
+        with open(o, 'w') as writer:
             self.reader.itf.starting_workers()
             pool = multiprocessing.Pool(processes=self.reader.itf.prc)
             gen = generator.start(self.reader)
