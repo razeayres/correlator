@@ -2,7 +2,7 @@
 # and Josicleda Galvincio (josicleda@gmail.com)
 
 class handler(object):
-    def __init__(self, csvfile=None, prm=None, trh=None, prc=None, typ='lin'):
+    def __init__(self, csvfile=None, prm=None, trh=None, prc=None, typ=None):
         self.csvfile = csvfile
         self.prm = prm
         self.trh = trh

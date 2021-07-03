@@ -12,7 +12,7 @@ if __name__ == '__main__':
     multiprocessing.freeze_support()
     st = time() # starts the timer
 
-    if len(argv) == 5:
+    if len(argv) == 6:
         itf = interface.handler(str(argv[1]),       # input file in csv
                                 int(argv[2]),       # number of parameters
                                 float(argv[3]),     # threshold limit

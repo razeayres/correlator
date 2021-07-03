@@ -37,7 +37,8 @@ class statistics(object):
 		try:
 			exec(self.x)
 			if self.reader.itf.typ in ['log', 'pow']:
-				self.x = numpy.log(self.x)	# ajuste nao-linear
+				self.x = numpy.ma.log(self.x)	# ajuste nao-linear
+				self.x = self.x.filled(0)
 			self.x = variables.x(self.x)
 			self.cov = variables.cov(self.x, self.y)
 

@@ -9,7 +9,8 @@ class y(object):
         try:
             self.s = numpy.array(reader.data['y'])
             if reader.itf.typ in ['exp', 'pow']:
-                self.s = numpy.log(self.s)	# ajuste nao-linear
+                self.s = numpy.ma.log(self.s)	# ajuste nao-linear
+                self.s = self.s.filled(0)
             self.d = self.s - self.s.mean()
             self.v = sqrt((self.d**2).sum())
         except:
