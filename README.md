@@ -8,7 +8,7 @@ Correlator fits multiple models based on the combinations of input series; custo
 
 ### Package usage
 ```r
-python <input> <n_pars> <threshold> <n_procs>
+python <input> <n_pars> <threshold> <n_procs> <type>
 ```
 
-Where ```<input>``` is the input csv (comma delimited) file, ```<n_pars>``` is the number of parameters used to develop the models, ```<threshold>``` is the lowest r2 value that produces an output, ```<n_procs>``` is the number of processors used to perform parallel optimizations.
+Where ```<input>``` is the input csv (comma delimited) file; ```<n_pars>``` is the number of parameters used to develop the models; ```<threshold>``` is the lowest r2 value that produces an output; ```<n_procs>``` is the number of processors used to perform parallel optimizations; and ```<type>``` is the form of fitting new models, and can be ```lin```, ```pow```, ```log``` or ```exp```.
