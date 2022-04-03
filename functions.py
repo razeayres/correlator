@@ -5,13 +5,15 @@ import numpy
 import variables
 from math import sqrt
 from copy import copy
+from dask.distributed import Lock
 
 class statistics(object):
-	def __init__(self, reader, y, chunk):
+	def __init__(self, reader, y, chunk):	# o, reader, y, chunk
 		# This was received from
 		# from the partial function object
 		self.y = y
 		self.reader = reader
+		# self.o = o
 
 		# This is the real variable argument
 		# received from the generator
@@ -31,6 +33,28 @@ class statistics(object):
 				self.nash = self.calc_nash(self.y0, self.y)
 				self.pbias = self.calc_pbias(self.y0, self.y)
 				# self.compare_to_others()
+		# self.write()
+
+	def write(self):
+		if not self.qc == 1:
+			r = [self.t,
+				 self.pearson,
+				 self.rmse,
+				 self.cov.a,
+				 self.cov.b,
+				 self.pc,
+				 self.lim,
+				 self.rtv,
+				 self.rmse0,
+				 self.nash,
+				 self.pbias]
+			r = map(str, r)
+
+			lock = Lock('writer')
+			lock.acquire(timeout=60)
+			with open(self.o, 'a+') as writer:
+				writer.write(",".join(r) + "\n")
+			lock.release()
 
 	def simulate(self):
 		numpy.seterr('raise')

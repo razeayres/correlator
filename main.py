@@ -3,10 +3,13 @@
 
 from sys import argv
 from time import time
-import multiprocessing
+import multiprocessing, asyncio
 import reader
 import interface
-import writer
+import writer, writer_dask
+
+
+
 
 if __name__ == '__main__':
     multiprocessing.freeze_support()
@@ -23,6 +26,8 @@ if __name__ == '__main__':
 
         reader = reader.data(itf)
         writer = writer.data(reader)
+        # writer = writer_dask.data(reader)
+        # asyncio.get_event_loop().run_until_complete(writer_dask.data(reader))
     else:
         itf = interface.handler()
         itf.credits()       # prints the credits

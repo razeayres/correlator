@@ -28,5 +28,5 @@ class cov(object):
         self.b = ((x.s*y.s).sum()-(x.s.sum()*y.s.sum())/len(x.s))/(((x.s - x.s.mean())**2).sum())
         self.a = y.s.mean()-self.b*x.s.mean()
 
-        self.b = round(self.b, 1)
-        self.a = round(self.a, 1)
+        self.b = round(self.b, 2)
+        self.a = round(self.a, 2)

@@ -36,20 +36,23 @@ class data(object):
             except:
                 self.prs.append(i)
 
-    def load(self, sep=","):
+    def load(self, sep=",", dec="."):
         self.itf.reading_data()   # prints the reading warning
         
         self.reader = open(self.itf.csvfile, 'r')  # opens the file
         self.reader = self.reader.readlines()   # make a list from the file
 
-        self.reader = [i.replace('\n', '').replace('\r', '').split(sep) for i in self.reader] # removes the terminator, and splits the lines
+        self.reader = [i.replace('\n', '').replace('\r', '') for i in self.reader] # removes the terminator
+        if dec == ",":
+            self.reader = [i.replace(',', '.') for i in self.reader] # changes de decimal to "."
+        self.reader = [i.split(sep) for i in self.reader] # splits the lines
         self.header = self.reader[0]    # gets the header from the list
         self.reader = self.reader[1:]    # removes the header from the list
 
         # In case, the sep is ";"
         # instead of ","
         if len(self.header) == 1:
-            return(self.load(sep=";"))
+            return(self.load(sep=";", dec=","))
 
         # Process the data and
         # populates the data structures
